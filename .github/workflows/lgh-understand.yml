@@ -1,0 +1,20 @@
+# This file is from  Learn GitHun\b Actions/ Understanding GitHub Actions
+name: Learn-github-actions
+
+run-name: ${{ github.actor }} is learning GH Actions
+
+on: [push]
+
+jobs:
+  run-npm-install:
+    runs-on: ubuntu-version
+    steps:
+      - name: Checkout repo to runner
+        uses: actions/checkout@v3
+      - name: Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Install npm
+        run: npm i
+        echo: "Just ran "npm i" command "      
