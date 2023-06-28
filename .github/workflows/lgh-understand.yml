@@ -17,4 +17,5 @@ jobs:
           node-version: "16"
       - name: Install npm
         run: npm i
+      - name: Message displayer
         run: echo "Just ran "npm i" command "      
