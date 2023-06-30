@@ -1,9 +1,11 @@
 # This file is from  Learn GitHun\b Actions/ Understanding GitHub Actions
 name: Learn-github-actions
 
-run-name: ${{ github.actor }} is learning GH Actions
+run-name: Learn GH Actions / Understanding GH Actions #${{ github.actor }} is learning GH Actions
 
-on: [push]
+on:
+  push:
+    branches: ["learn-gh-actions"]
 
 jobs:
   run-npm-install:
@@ -17,4 +19,5 @@ jobs:
           node-version: "16"
       - name: Install npm
         run: npm i
-        run: echo "Just ran "npm i" command "      
+      - name: Message displayer
+        run: echo "Just ran "npm i" command "

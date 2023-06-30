@@ -1,0 +1,20 @@
+#This is a sample task given by Karthik & Pavana
+
+name: Sample task
+
+run-name: ${{ github.actor }} is doing a sample task
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  job1:
+    steps:
+      - name: ${{ github.sha }} is the commit sha
+        run: echo "this is to print commit sha ${{ github.sha }}"
+  job2:
+    needs: job1
+    steps:
+      - name: ${{ runner.os }} is the os of the runner
+        run: echo "this is to print os name of the runner ${{ runner.os }}"
