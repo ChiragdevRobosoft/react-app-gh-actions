@@ -10,11 +10,13 @@ on:
 
 jobs:
   job1:
+    runs-on: ubuntu-latest
     steps:
       - name: ${{ github.sha }} is the commit sha
         run: echo "this is to print commit sha ${{ github.sha }}"
   job2:
     needs: job1
+    runs-on: ubuntu-latest
     steps:
       - name: ${{ runner.os }} is the os of the runner
         run: echo "this is to print os name of the runner ${{ runner.os }}"
