@@ -9,7 +9,7 @@ on:
 
 jobs:
   run-npm-install:
-    runs-on: ubuntu-version
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repo to runner
         uses: actions/checkout@v3
