@@ -6,7 +6,7 @@ run-name: ${{ github.actor }} is doing a sample task
 
 on:
   push:
-    branches: ["main"]
+    branches: ["learn-gh-actions"]
 
 jobs:
   job1:
