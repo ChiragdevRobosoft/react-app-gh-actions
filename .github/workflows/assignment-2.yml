@@ -25,7 +25,7 @@ jobs:
         continue-on-error: true
         run: npm list
       - name: Step 3 - Install Node
-        if: ${{ steps.cache-npm-mod.outputs.cache-hit != true }}
+        if: steps.cache-npm-mod.outputs.cache-hit != true
         run: npm i
       - name: Step 4 - Run test
         run: npm run test
@@ -42,12 +42,13 @@ jobs:
           node-version: "16"
           cache: "npm"
       - name: Step 3 - Cache node modules
+        id: cache-npm-mod
         uses: actions/cache@v3
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Step 4 - Install
-        if: ${{ steps.cache-npm-mod.outputs.cache-hit != true}}
+        if: steps.cache-npm-mod.outputs.cache-hit != true
         run: npm i
       - name: Step 4 - Run build
         run: npm run build
