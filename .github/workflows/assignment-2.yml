@@ -20,7 +20,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - if: steps.cache-npm-mod.outputs.cache-hit != "true"
+      - if: steps.cache-npm-mod.outputs.cache-hit != 'true'
         name: List the node modules state
         continue-on-error: true
         run: npm list
