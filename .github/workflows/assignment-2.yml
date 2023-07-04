@@ -20,12 +20,12 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - if: ${{ steps.cache-npm-mod.outputs.cache-hit != true}}
+      - if: steps.cache-npm-mod.outputs.cache-hit != "true"
         name: List the node modules state
         continue-on-error: true
         run: npm list
       - name: Step 3 - Install Node
-        if: steps.cache-npm-mod.outputs.cache-hit != true
+        if: steps.cache-npm-mod.outputs.cache-hit != "true"
         run: npm i
       - name: Step 4 - Run test
         run: npm run test
@@ -48,7 +48,7 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Step 4 - Install
-        if: steps.cache-npm-mod.outputs.cache-hit != true
+        if: steps.cache-npm-mod.outputs.cache-hit != "true"
         run: npm i
       - name: Step 4 - Run build
         run: npm run build
