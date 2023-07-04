@@ -6,7 +6,7 @@ on: [push]
 
 jobs:
   steps:
-    test-job:
+    testjob:
       runs-on: ubuntu-latest
       - name: Step 1 - Checkout
         uses: actions/checkout@v3
@@ -14,8 +14,8 @@ jobs:
         run: npm i
       - name: Step 3 - Run test
         run: rpm run test
-        
-    build-job:
+
+    buildjob:
       runs-on: ubuntu-latest
       needs: test-job
       - name: Step 1 - Checkout   
