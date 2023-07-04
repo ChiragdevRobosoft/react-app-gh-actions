@@ -30,6 +30,6 @@ jobs:
         with:
           node-version: "16"
       - name: Step 3 - Install
-        run: npm i
+        run: npm ci
       - name: Step 4 - Run build
         run: npm run build
