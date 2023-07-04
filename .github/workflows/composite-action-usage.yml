@@ -1,3 +1,4 @@
+name: Composite action test
 on: [push]
 
 jobs:

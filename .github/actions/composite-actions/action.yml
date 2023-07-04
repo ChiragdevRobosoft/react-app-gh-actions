@@ -25,3 +25,4 @@ runs:
       shell: bash
     - name: Good Bye
       run: echo " Bye Bye "
+      shell: bash
