@@ -10,12 +10,11 @@ jobs:
     steps:
       - name: Step 1 - Checkout
         uses: actions/checkout@v3
-      # - name: Step 2 - Setup node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "16"
-      #     cache: "npm"
-      - name: Cache node modules
+      - name: Step 2 - Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Step 3 - Cache node modules
         id: cache-npm-mod
         uses: actions/cache@v3
         with:
@@ -37,12 +36,17 @@ jobs:
     steps:
       - name: Step 1 - Checkout
         uses: actions/checkout@v3
-      # - name: Step 2 - Node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "16"
-      #     cache: "npm"
-      - name: Step 3 - Install
+      - name: Step 2 - Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "npm"
+      - name: Step 3 - Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: job2-cache
+      - name: Step 4 - Install
         if: ${{ steps.cache-npm-mod.outputs.cache-hit != true}}
         run: npm i
       - name: Step 4 - Run build
