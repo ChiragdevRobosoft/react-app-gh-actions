@@ -21,7 +21,7 @@ jobs:
         with:
           path: ~/.npm
           key: first-trial-cache
-      - if: ${{ steps.cacche-npm-mod.outputs.cache-hit != true}}
+      - if: ${{ steps.cache-npm-mod.outputs.cache-hit != true}}
         name: List the node modules state
         continue-on-error: true
         run: npm list
