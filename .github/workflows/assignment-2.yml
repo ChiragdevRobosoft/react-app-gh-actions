@@ -25,5 +25,11 @@ jobs:
     steps:
       - name: Step 1 - Checkout
         uses: actions/checkout@v3
-      - name: Step 3 - Run build
+      - name: Step 2 - Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - name: Step 3 - Install
+        run: npm i
+      - name: Step 4 - Run build
         run: npm run build
