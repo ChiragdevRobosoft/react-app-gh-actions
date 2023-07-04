@@ -19,7 +19,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: first-trial-cache
+          key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
       - if: ${{ steps.cache-npm-mod.outputs.cache-hit != true}}
         name: List the node modules state
         continue-on-error: true
@@ -45,7 +45,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ~/.npm
-          key: job2-cache
+          key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Step 4 - Install
         if: ${{ steps.cache-npm-mod.outputs.cache-hit != true}}
         run: npm i
