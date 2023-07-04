@@ -30,6 +30,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
+          cache: "npm"
       - name: Step 3 - Install
         run: npm ci
       - name: Step 4 - Run build
