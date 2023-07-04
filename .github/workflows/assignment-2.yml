@@ -1,0 +1,26 @@
+name: Assignment Workflow
+
+run-name: Assignment 2
+
+on: [push]
+
+jobs:
+  steps:
+    test-job:
+      runs-on: ubuntu-latest
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v3
+      - name: Step 2 - Install Node  
+        run: npm i
+      - name: Step 3 - Run test
+        run: rpm run test
+        
+    build-job:
+      runs-on: ubuntu-latest
+      needs: test-job
+      - name: Step 1 - Checkout   
+        uses: actions/checkout@v3
+      - name: Step 2 - Node install
+        run: npm i
+      - name: Step 3 - Run build
+        run: npm run build 
