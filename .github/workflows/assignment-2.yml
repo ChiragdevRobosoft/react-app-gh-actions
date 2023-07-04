@@ -17,7 +17,7 @@ jobs:
       - name: Step 3 - Install Node
         run: npm i
       - name: Step 4 - Run test
-        run: rpm run test
+        run: npm run test
 
   buildjob:
     runs-on: ubuntu-latest
