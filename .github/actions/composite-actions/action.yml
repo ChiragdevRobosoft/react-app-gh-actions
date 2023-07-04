@@ -1,6 +1,6 @@
 name: Hello World
 
-description: Greet Someone
+description: ${{ github.actor }} created action for Greeting Someone
 
 inputs:
   who-to-greet: #id of the input
