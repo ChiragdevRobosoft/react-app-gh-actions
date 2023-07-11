@@ -30,6 +30,10 @@ jobs:
         run: npm i
       - name: Cache check
         run: echo ${{ steps.cache-npm-mod.outputs.cache-hit == 'true' && 'It was a cache hit' || 'Its was a cache miss' }}
+      - name: Using secrets
+        env:
+          APP_TOKEN: ${{ secrets.ASSIGNMENT_2_SEC }}
+        run: echo $APP_TOKEN
       - name: Step 4 - Run test
         run: npm run test
 
