@@ -28,6 +28,8 @@ jobs:
       - name: Step 3 - Install Node
         # if: steps.cache-npm-mod.outputs.cache-hit != 'true'
         run: npm i
+      - name: Cache check
+        run: echo ${{ steps.cache-dependencies.outputs.cache-hit == 'true' && "It was a cache hit" || "Its was a cache miss" }}
       - name: Step 4 - Run test
         run: npm run test
 
